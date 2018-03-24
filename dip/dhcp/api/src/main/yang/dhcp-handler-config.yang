@@ -1,0 +1,79 @@
+module dhcp-handler-config {
+
+    yang-version 1;
+    namespace "urn:opendaylight:packet:dhcp-handler-config";
+    prefix "dhcp-handler-config";
+
+
+    description
+        "This module contains the base configuration for dhcphandler-impl implementation.";
+
+    revision 2017-05-28 {
+        description "Initial revision.";
+    }
+
+    container dhcp-handler-config {
+        leaf subnet-mask {
+            type string;
+        }
+        leaf upper-ip {
+            type string;
+            default 192.168.31.253;
+        }
+        leaf lower-ip {
+            type string;
+            default 192.168.31.160;
+        }
+        container reserved-address {
+            description "reserved-address";
+            list reserced-static-address {
+                key "reserved-mac";
+                leaf reserved-mac {
+                    type string;
+                }
+                leaf reserved-ip {
+                    type string;
+                }
+            }
+        }
+        leaf broadcast-address {
+            type string;
+            default 192.168.31.255;
+        }
+        leaf router-address {
+            type string;
+            default 192.168.31.131;
+        }
+        leaf domain-name {
+            type string;
+            default RandomDomain;
+        }
+        leaf lease-time {
+            type uint32;
+            default 83200;
+        }
+        leaf hold-lease-time {
+            type uint32;
+            default 83200;
+        }
+        leaf domain-name-server {
+            type string;
+        }
+        leaf ntp-servers {
+            type string;
+        }
+        leaf controller-mac {
+            type string;
+        }
+        leaf controller-ip {
+            type string;
+            default 192.168.31.131;
+        }
+        leaf lease-gc-period {
+            type uint32;
+        }
+        leaf is-forwarding {
+            type boolean;
+        }
+    }
+}

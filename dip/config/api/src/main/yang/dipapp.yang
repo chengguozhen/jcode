@@ -1,0 +1,140 @@
+module dipapp {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:dipapp";
+    prefix "dipapp";
+
+	import yang-ext {
+	    prefix ext;
+	    revision-date "2013-07-09";
+	}
+	import ietf-inet-types {
+	    prefix inet;
+	    revision-date 2013-07-15;
+	}
+    import ietf-yang-types {
+        prefix yang;
+        revision-date 2013-07-15;
+    }
+    import opendaylight-inventory {
+        prefix inv;
+        revision-date 2013-08-19;
+    }
+    import ipv4-packet {
+        prefix ipv4;
+        revision-date 2014-05-28;
+    }
+    import network-topology {
+        prefix nt;
+        revision-date 2013-10-21;
+    }
+
+
+    description
+        "dipapp Data Model";
+
+    revision 2015-01-05 {
+        description
+          "dipapp module draft.";
+    }
+	
+	grouping sessions {
+		list flow-session{
+		    key id;
+		    leaf id {
+                type uint32;
+                description "session ID";
+            }
+			leaf src-ip{
+                  type inet:ip-address;
+                  description "src IPv4 or IPv6 address";
+	    	}
+	    	leaf src-v-ip{
+                  type inet:ip-address;
+                  description "the vip for src IPv4 or IPv6 address";
+            }
+			leaf dst-ip{
+                  type inet:ip-address;
+                  description "dst IPv4 or IPv6 address";
+	    	}
+	    	leaf dest-v-ip{
+                  type inet:ip-address;
+                  description "the vip for src IPv4 or IPv6 address";
+            }
+			leaf w-ip{
+                  type inet:ip-address;
+                  description "the real-ip for dst IPv4 or IPv6 address";
+	    	}
+			leaf src-port{
+                  type uint16;
+                  description "the src port";
+	    	}
+			leaf dst-port{
+                  type uint16;
+                  description "the dst port";
+	    	}
+			leaf proto{
+				type ipv4:known-ip-protocols;
+				description "the protocol.";
+			}
+			leaf ttl{
+			    type uint32;
+            	description "time to live.";
+			}
+			list path{
+			    uses nt:link-attributes;
+			    description "the path.";
+			}
+		}
+	}
+
+	container flow-sessions-list {
+		uses sessions;
+    }
+
+    grouping v-address-node-connector {
+      description "This info is used to configure virtual identifier to implement MTD.";
+
+      list vip-address-entities {
+          description "This info is used to configure virtual identifier of Host to implement MTD. We take it as an entity.";
+        key mac;
+        leaf mac {
+            type yang:mac-address;
+            description "MAC address";
+        }
+        leaf rip{
+          type inet:ip-address;
+          description "real IPv4 or IPv6 address";
+          }
+        leaf vip{
+          type inet:ip-address;
+          description "virtual IPv4 or IPv6 address";
+        }
+        leaf w-ip{
+          type inet:ip-address;
+          description "the w-ip for IPv4 or IPv6 address";
+        }
+        leaf vdomain{
+          type string;
+          description "Virtual domain and it's can be empty.";
+        }
+
+        leaf vip-last-mutation {
+          type int32;
+          default 0;
+          description "The most recent update time the vip is set";
+        }
+
+        leaf vdomain-last-mutation{
+          type int32;
+          default 0;
+          description "The most recent update time the vip is set";
+        }
+      }
+    }
+
+   augment "/inv:nodes/inv:node/inv:node-connector" {
+       ext:augment-identifier "v-address-capable-node-connector";
+       uses v-address-node-connector;
+   }
+
+}

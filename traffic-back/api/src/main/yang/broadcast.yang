@@ -1,0 +1,24 @@
+module broadcast {
+  namespace "urn:opendaylight:broadcast";
+  prefix bc;
+  revision "2017-08-26" {
+    description "Broadcast module";
+  }
+  notification weather-forecast  {
+    leaf date {
+        type string;
+    }
+    leaf location {
+        type string;
+    }
+    leaf weather {
+      type string;
+    }
+  }
+
+  notification breaking-news {
+     leaf desc {
+         type string;
+     }
+  }
+}

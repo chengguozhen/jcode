@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.opendaylight.mdsal</groupId>
+        <artifactId>binding-parent</artifactId>
+        <version>0.10.2-Carbon</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>org.opendaylight.dipproject.nat</groupId>
+    <artifactId>nat-api</artifactId>
+    <version>0.5.2-Carbon</version>
+    <!-- <name> formatting is used by autorelease to parse and notify projects on
+         build failure. Please do not modify this unless you have a good reason. -->
+    <name>ODL :: org.opendaylight.dipproject :: ${project.artifactId}</name>
+    <packaging>bundle</packaging>
+
+</project>

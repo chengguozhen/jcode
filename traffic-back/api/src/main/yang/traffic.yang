@@ -1,0 +1,21 @@
+module traffic {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:traffic";
+    prefix "traffic";
+
+    revision "2015-01-05" {
+        description "Initial revision of traffic model";
+    }
+    rpc hello-world {
+            input {
+                leaf name {
+                    type string;
+                }
+            }
+            output {
+                leaf greeting {
+                    type string;
+                }
+            }
+        }
+}

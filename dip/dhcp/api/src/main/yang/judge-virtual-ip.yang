@@ -1,0 +1,50 @@
+module judge-virtual-ip {
+
+    yang-version 1;
+    namespace "urn:opendaylight:rpc:judge-virtual-ip";
+    prefix "judge-virtual-ip";
+
+    import ietf-inet-types {
+        prefix inet;
+        revision-date 2013-07-15;
+    }
+    import ietf-yang-types {
+        prefix yang;
+        revision-date 2013-07-15;
+    }
+
+    description
+        "virtual-judge-ip ";
+
+    revision 2017-05-28 {
+        description "Initial revision.";
+    }
+    rpc virtual-judge-ip {
+        description "real-judge-ip ";
+
+        input {
+            leaf virtual-ip {
+                type inet:ip-address;
+                description "virtual IP address";
+            }
+        }
+
+        output {
+            leaf real-ip{
+               type inet:ip-address;
+               description "real IPv4 or IPv6 address";
+            }
+            leaf mac {
+               type yang:mac-address;
+               description "MAC address";
+            }
+            leaf store-path {
+                type inet:uri;
+            }
+            leaf success {
+               description "true: success; false: failed.";
+               type boolean;
+            }
+        }
+    }
+}

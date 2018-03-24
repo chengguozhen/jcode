@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/IndoorPos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/OpenVirteX" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SpringBootAdmin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/iclient" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/kapua" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/l2switch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/worldma" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/wx_bot" vcs="Git" />
+  </component>
+</project>

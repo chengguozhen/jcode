@@ -1,0 +1,173 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="org.eclipse.kapua.app.console:war exploded">
+    <output-path>$PROJECT_DIR$/kapua/org.eclipse.kapua.app.console/target/console-0.2.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="org.eclipse.kapua.app.console" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="kapua-guice-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-guice" />
+          </element>
+          <element id="archive" name="kapua-commons-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-commons" />
+          </element>
+          <element id="library" level="project" name="Maven: com.google.guava:guava:19.0" />
+          <element id="library" level="project" name="Maven: org.eclipse.persistence:eclipselink:2.6.3" />
+          <element id="library" level="project" name="Maven: org.eclipse.persistence:javax.persistence:2.1.1" />
+          <element id="library" level="project" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" />
+          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.192" />
+          <element id="library" level="project" name="Maven: com.google.inject:guice:4.1.0" />
+          <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: commons-configuration:commons-configuration:1.9" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
+          <element id="archive" name="kapua-account-internal-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-account-internal" />
+          </element>
+          <element id="archive" name="kapua-account-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-account-api" />
+          </element>
+          <element id="archive" name="kapua-locator-service-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-locator-service" />
+          </element>
+          <element id="library" level="project" name="Maven: io.dropwizard.metrics:metrics-core:3.1.2" />
+          <element id="archive" name="kapua-security-authorization-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-security-authorization-api" />
+          </element>
+          <element id="archive" name="kapua-device-registry-internal-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-registry-internal" />
+          </element>
+          <element id="archive" name="kapua-device-call-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-call-api" />
+          </element>
+          <element id="archive" name="kapua-device-registry-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-registry-api" />
+          </element>
+          <element id="archive" name="kapua-message-internal-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-message-internal" />
+          </element>
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.5" />
+          <element id="archive" name="kapua-idgenerator-sequence-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-idgenerator-sequence" />
+          </element>
+          <element id="archive" name="kapua-idgenerator-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-idgenerator-api" />
+          </element>
+          <element id="archive" name="kapua-user-internal-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-user-internal" />
+          </element>
+          <element id="archive" name="kapua-user-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-user-api" />
+          </element>
+          <element id="archive" name="kapua-security-shiro-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-security-shiro" />
+          </element>
+          <element id="archive" name="kapua-security-authentication-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-security-authentication-api" />
+          </element>
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.2.3" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.2" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.3" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:4.1.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.2.RELEASE" />
+          <element id="archive" name="kapua-device-call-kura-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-call-kura" />
+          </element>
+          <element id="archive" name="kapua-transport-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-transport-api" />
+          </element>
+          <element id="archive" name="kapua-translator-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-translator-api" />
+          </element>
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.3" />
+          <element id="library" level="project" name="Maven: org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:2.6.1" />
+          <element id="archive" name="kapua-device-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-api" />
+          </element>
+          <element id="archive" name="kapua-message-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-message-api" />
+          </element>
+          <element id="archive" name="kapua-device-commons-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-commons" />
+          </element>
+          <element id="archive" name="kapua-device-bundle-internal-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-bundle-internal" />
+          </element>
+          <element id="archive" name="kapua-device-bundle-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-bundle-api" />
+          </element>
+          <element id="archive" name="kapua-device-command-internal-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-command-internal" />
+          </element>
+          <element id="archive" name="kapua-device-command-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-command-api" />
+          </element>
+          <element id="archive" name="kapua-device-configuration-internal-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-configuration-internal" />
+          </element>
+          <element id="archive" name="kapua-device-configuration-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-configuration-api" />
+          </element>
+          <element id="library" level="project" name="Maven: joda-time:joda-time:2.9.4" />
+          <element id="archive" name="kapua-device-packages-internal-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-packages-internal" />
+          </element>
+          <element id="archive" name="kapua-device-packages-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-device-packages-api" />
+          </element>
+          <element id="archive" name="kapua-datastore-api-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-datastore-api" />
+          </element>
+          <element id="archive" name="org.eclipse.kapua.translator.kura.mqtt-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="org.eclipse.kapua.translator.kura.mqtt" />
+          </element>
+          <element id="archive" name="kapua-translator-kapua-kura-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-translator-kapua-kura" />
+          </element>
+          <element id="library" level="project" name="Maven: org.eclipse.persistence:org.eclipse.persistence.moxy:2.6.3" />
+          <element id="library" level="project" name="Maven: org.eclipse.persistence:org.eclipse.persistence.core:2.6.3" />
+          <element id="library" level="project" name="Maven: org.eclipse.persistence:org.eclipse.persistence.asm:2.6.3" />
+          <element id="library" level="project" name="Maven: org.glassfish:javax.json:1.0.4" />
+          <element id="archive" name="kapua-transport-mqtt-0.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="kapua-transport-mqtt" />
+          </element>
+          <element id="library" level="project" name="Maven: com.google.gwt:gwt-servlet:2.4.0" />
+          <element id="library" level="project" name="Maven: com.extjs:gxt:2.2.5" />
+          <element id="library" level="project" name="Maven: com.allen-sauer.gwt.log:gwt-log:3.1.8" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.2.2" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
+          <element id="library" level="project" name="Maven: org.apache.sanselan:sanselan:0.97-incubator" />
+          <element id="library" level="project" name="Maven: org.apache.velocity:velocity:1.7" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.4" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.2.3" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi:3.7" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml:3.7" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml-schemas:3.7" />
+          <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:2.3.0" />
+          <element id="library" level="project" name="Maven: stax:stax-api:1.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+          <element id="library" level="project" name="Maven: com.opencsv:opencsv:3.7" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.3.2" />
+          <element id="library" level="project" name="Maven: org.gwtopenmaps.openlayers:gwt-openlayers-client:0.9" />
+          <element id="library" level="project" name="Maven: org.mortbay.jetty:jetty-util:6.1.26" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/kapua/org.eclipse.kapua.app.console/target/console-0.2.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="org.eclipse.kapua.app.console/web/Web" />
+    </root>
+  </artifact>
+</component>

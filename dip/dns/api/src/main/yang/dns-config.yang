@@ -1,0 +1,62 @@
+module dns-config {
+    yang-version 1.1;
+    namespace "urn:opendaylight:dns:yang:dns-config";
+    prefix dnsconfig;
+
+    import ietf-inet-types {
+        prefix inet;
+        revision-date 2013-07-15;
+    }
+    revision 2017-11-24 {
+        description "DNS config module draft";
+    }
+    container dns-config {
+        leaf dns-address {
+            type inet:ipv4-address;
+            default 1.1.1.1;
+        }
+        leaf dns-forward-address {
+            type inet:ipv4-address;
+            default 8.8.8.8;
+        }
+         leaf dns-flow-table-id {
+            type uint8;
+            default 0;
+        }
+        leaf dns-flow-priority {
+            type uint16;
+            default 50;
+        }
+        leaf dns-flow-hard-timeout {
+            type uint16;
+            default 0;
+        }
+        leaf dns-flow-idle-timeout {
+            type uint16;
+            default 0;
+        }
+        leaf forward-flow-flow-table-id {
+            type uint8;
+            default 0;
+        }
+        leaf forward-flow-priority {
+            type uint16;
+            default 48;
+        }
+        leaf forward-flow-hard-timeout {
+            type uint16;
+            default 0;
+        }
+        leaf forward-flow-idle-timeout {
+            type uint16;
+            default 0;
+        }
+
+        leaf is-forward-mode {
+            type boolean;
+            default false;
+            description "Setting the value to true for forward the dns packet";
+        }
+    }
+
+}

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="worldma:war">
+    <output-path>$PROJECT_DIR$/worldma/target</output-path>
+    <root id="archive" name="worldma.war">
+      <element id="artifact" artifact-name="worldma:war exploded" />
+    </root>
+  </artifact>
+</component>

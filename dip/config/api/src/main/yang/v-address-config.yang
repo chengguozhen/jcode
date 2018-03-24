@@ -1,0 +1,99 @@
+module v-address-config {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:dipapp:v-address-config";
+    prefix "v-address-config";
+
+    import ietf-inet-types { prefix inet;}
+
+    contact "guozhencheng@hotmail.com";
+    
+    organization "www.ndsc.org";
+    
+    description " this model is used to config virtual IP segment.";
+
+
+    revision "2015-01-05";
+
+    typedef vstate_model {
+        type enumeration{
+            enum "success"{
+                value 1;
+            }
+            enum "false"{
+                value 2;
+            }
+        }
+        description "The state of vIp config.";
+    }
+
+    grouping v-addrs {
+    	description "this grouping is a virtual address entity.";
+    	
+    	leaf rips-id {
+    		type string;
+    		description "the real IP segment ID, the lenght 32 byte.";
+    	}
+    	
+        list v-ip-conf {
+        	key vips-id;
+        	
+        	leaf vips-id {
+        		type string;
+        		description "the virtual IP segment ID, the lenght 32 byte.";
+        	}
+            leaf v-start-ip {
+                type inet:ip-address;
+                description "virtual start Ip of for ip mutation.";
+            }
+            leaf v-end-ip {
+                type inet:ip-address;
+                description "virtual start Ip of for ip mutation.";
+            }
+            leaf v-ip-global-period {
+                type int64;
+                description "The global period that virtual ip segment is imutated.";
+            }
+        }
+    }
+
+    container vaddr-config {
+        description "It's a container used to store the virtual address configuration
+                of various subnet";
+
+        list v-addr-list {
+        	description "the virtal IP segment list for special subnets.";
+        	key rips-id;
+        	uses v-addrs;
+        }
+    }
+    
+    rpc vaddr-conf {
+    	description "vaddr configuration service";
+    	
+    	input {
+            uses v-addrs;
+            
+    	}
+
+        output {
+    		leaf success {
+    			description "true: success; false: failed.";
+    			type boolean;
+    		}
+    		leaf message {
+    			description "details information for the result to involve the rpc.";
+    			type string;
+    		}
+            leaf vstate {
+                description "the output of vIp config's state.";
+                type vstate_model;
+            }
+    	}
+    }
+    
+    notification vaddr-segment {
+    	description "vaddr segment configuration notification.";
+
+    	uses v-addrs;
+    }
+}

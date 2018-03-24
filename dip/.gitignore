@@ -1,0 +1,22 @@
+*.class
+**/target
+bin/
+dist
+**/logs
+*~
+target
+target-ide
+.classpath
+.project
+.settings
+*/.idea/
+.idea/
+xtend-gen
+yang-gen-config
+yang-gen-sal
+classes
+.DS_STORE
+.metadata
+# Intellij
+*.iml
+*/*.iml

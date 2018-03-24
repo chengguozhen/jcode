@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vi: set et smarttab sw=4 tabstop=4: -->
+<!--
+Copyright © 2017 NDSC and others. All rights reserved.
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License v1.0 which accompanies this distribution,
+and is available at http://www.eclipse.org/legal/epl-v10.html
+-->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+  xmlns:odl="http://opendaylight.org/xmlns/blueprint/v1.0.0"
+  odl:use-default-for-reference-types="true">
+
+  <reference id="dataBroker"
+             interface="org.opendaylight.controller.md.sal.binding.api.DataBroker"
+             odl:type="default" />
+
+  <odl:rpc-service id="salFlowService"
+                   interface="org.opendaylight.yang.gen.v1.urn.opendaylight.flow.service.rev130819.SalFlowService" />
+  <odl:rpc-service id="packetHandlerService"
+                   interface="org.opendaylight.yang.gen.v1.urn.opendaylight.packet.service.rev130709.PacketProcessingService" />
+
+  <reference id="notificationService"
+             interface="org.opendaylight.controller.md.sal.binding.api.NotificationService" />
+
+  <odl:rpc-service id="virtualChange"
+                   interface="org.opendaylight.yang.gen.v1.urn.opendaylight.rpc.get.change.ip.rev170528.GetChangeIpService" />
+  <odl:rpc-service id="realIpJudge"
+                   interface="org.opendaylight.yang.gen.v1.urn.opendaylight.rpc.judge.real.ip.rev170528.JudgeRealIpService" />
+  <odl:rpc-service id="virtualIpJudge"
+                   interface="org.opendaylight.yang.gen.v1.urn.opendaylight.rpc.judge.virtual.ip.rev170528.JudgeVirtualIpService" />
+
+  <odl:clustered-app-config id="dipMainConfig"
+                            binding-class="org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.dipapp.main.config.rev140528.DipMainConfig">
+  </odl:clustered-app-config>
+
+    <bean id="arpreply"
+          class="org.opendaylight.dip.main.impl.ArpReply">
+        <argument ref="packetHandlerService" />
+    </bean>
+
+    <odl:notification-listener ref="arpreply"/>
+
+  <bean id="dipmainprovider"
+        class="org.opendaylight.dip.main.impl.DipMainProvider"
+        init-method="init" destroy-method="close">
+    <argument ref="dataBroker" />
+    <argument ref="salFlowService"/>
+    <argument ref="packetHandlerService" />
+    <argument ref="notificationService"/>
+    <argument ref="virtualChange"/>
+    <argument ref="dipMainConfig"/>
+    <argument ref="realIpJudge"/>
+    <argument ref="virtualIpJudge"/>
+  </bean>
+
+</blueprint>

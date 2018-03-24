@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="kapua-console:war">
+    <output-path>$PROJECT_DIR$/kapua/console/target</output-path>
+    <root id="archive" name="admin.war">
+      <element id="artifact" artifact-name="kapua-console:war exploded" />
+    </root>
+  </artifact>
+</component>

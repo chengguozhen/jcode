@@ -1,0 +1,45 @@
+module ping {
+  namespace "urn:opendaylight:ping";
+  prefix ping;
+  import ietf-inet-types { prefix "inet"; revision-date 2013-07-15; }
+  revision "2017-08-26" {
+    description "TCP ping module";
+  }
+  rpc ping-hosts {
+    description "Send TCP ECHO request";
+    input {
+      leaf async {
+          type boolean;
+      }
+      list destination-all {
+          leaf destination {
+            type inet:ipv4-address;
+          }
+      }
+    }
+    output {
+    list echo-result-all {
+      leaf destination {
+         type inet:ipv4-address;
+      }
+      leaf echo-result {
+        type enumeration {
+          enum "reachable" {
+            value 0;
+            description "Received reply";
+          }
+          enum "unreachable" {
+            value 1;
+            description "No reply during timeout";
+          }
+          enum "error" {
+            value 2;
+            description "Error happened";
+          }
+        }
+        description "Result types";
+      }
+      }
+    }
+  }
+}

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AjcSettings">
+    <option name="ajcPath" value="$MAVEN_REPOSITORY$/org/aspectj/aspectjtools/1.8.9/aspectjtools-1.8.9.jar" />
+    <option name="cmdLineParams" value="-showWeaveInfo" />
+    <option name="delegateToJavac" value="true" />
+  </component>
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="ajc" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="addresstracker-impl" />
+        <module name="addresstracker-model" />
+        <module name="arphandler-impl" />
+        <module name="config-api" />
+        <module name="config-impl" />
+        <module name="dhcp-api" />
+        <module name="dhcp-impl" />
+        <module name="dip-features" />
+        <module name="dip-karaf" />
+        <module name="dns-api" />
+        <module name="dns-impl" />
+        <module name="features-l2switch" />
+        <module name="firstspringboot" />
+        <module name="hosttracker-impl" />
+        <module name="hosttracker-model" />
+        <module name="iAdmin" />
+        <module name="iclient" />
+        <module name="indoor_pos" />
+        <module name="kapua-account-api" />
+        <module name="kapua-account-internal" />
+        <module name="kapua-broker-core" />
+        <module name="kapua-commons" />
+        <module name="kapua-datastore-api" />
+        <module name="kapua-datastore-internal" />
+        <module name="kapua-dev-tools" />
+        <module name="kapua-device-api" />
+        <module name="kapua-device-bundle-api" />
+        <module name="kapua-device-bundle-internal" />
+        <module name="kapua-device-call-api" />
+        <module name="kapua-device-call-kura" />
+        <module name="kapua-device-call-test" />
+        <module name="kapua-device-command-api" />
+        <module name="kapua-device-command-internal" />
+        <module name="kapua-device-command-test" />
+        <module name="kapua-device-commons" />
+        <module name="kapua-device-configuration-api" />
+        <module name="kapua-device-configuration-internal" />
+        <module name="kapua-device-packages-api" />
+        <module name="kapua-device-packages-internal" />
+        <module name="kapua-device-registry-api" />
+        <module name="kapua-device-registry-internal" />
+        <module name="kapua-guice" />
+        <module name="kapua-idgenerator-api" />
+        <module name="kapua-idgenerator-random-mysql" />
+        <module name="kapua-idgenerator-sequence" />
+        <module name="kapua-locator-service" />
+        <module name="kapua-message-api" />
+        <module name="kapua-message-internal" />
+        <module name="kapua-security-authentication-api" />
+        <module name="kapua-security-authorization-api" />
+        <module name="kapua-security-shiro" />
+        <module name="kapua-test" />
+        <module name="kapua-translator-api" />
+        <module name="kapua-translator-kapua-kura" />
+        <module name="kapua-transport-api" />
+        <module name="kapua-transport-jms" />
+        <module name="kapua-transport-mqtt" />
+        <module name="kapua-transport-test" />
+        <module name="kapua-user-api" />
+        <module name="kapua-user-internal" />
+        <module name="loopremover-impl" />
+        <module name="loopremover-model" />
+        <module name="main-impl" />
+        <module name="nat-api" />
+        <module name="nat-impl" />
+        <module name="odl-l2switch-addresstracker" />
+        <module name="odl-l2switch-all" />
+        <module name="odl-l2switch-arphandler" />
+        <module name="odl-l2switch-hosttracker" />
+        <module name="odl-l2switch-loopremover" />
+        <module name="odl-l2switch-packethandler" />
+        <module name="odl-l2switch-switch" />
+        <module name="odl-l2switch-switch-rest" />
+        <module name="odl-l2switch-switch-ui" />
+        <module name="OpenVirteX" />
+        <module name="org.eclipse.kapua.app.api" />
+        <module name="org.eclipse.kapua.app.console" />
+        <module name="org.eclipse.kapua.assembly" />
+        <module name="org.eclipse.kapua.translator.kura.jms" />
+        <module name="org.eclipse.kapua.translator.kura.mqtt" />
+        <module name="packethandler-impl" />
+        <module name="packethandler-model" />
+        <module name="SpringBootAdmin" />
+        <module name="worldma" />
+        <module name="wx_bot" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="addresstracker-impl" target="1.8" />
+      <module name="addresstracker-model" target="1.8" />
+      <module name="addresstracker.aggregator" target="1.8" />
+      <module name="arphandler-impl" target="1.8" />
+      <module name="config-aggregator" target="1.8" />
+      <module name="config-api" target="1.8" />
+      <module name="config-impl" target="1.8" />
+      <module name="dhcp-aggregator" target="1.8" />
+      <module name="dhcp-api" target="1.8" />
+      <module name="dhcp-impl" target="1.8" />
+      <module name="dip-aggregator" target="1.8" />
+      <module name="dip-artifacts" target="1.5" />
+      <module name="dip-features" target="1.8" />
+      <module name="dip-karaf" target="1.8" />
+      <module name="distribution-karaf" target="1.5" />
+      <module name="dns-aggregator" target="1.8" />
+      <module name="dns-api" target="1.8" />
+      <module name="dns-impl" target="1.8" />
+      <module name="features-l2switch" target="1.5" />
+      <module name="features-l2switch-aggregator" target="1.5" />
+      <module name="firstspringboot" target="1.8" />
+      <module name="hosttracker-impl" target="1.8" />
+      <module name="hosttracker-model" target="1.8" />
+      <module name="hosttracker.aggregator" target="1.8" />
+      <module name="hsweb-demo" target="1.8" />
+      <module name="iAdmin" target="1.8" />
+      <module name="iclient" target="1.8" />
+      <module name="indoor_pos" target="1.7" />
+      <module name="kapua" target="1.8" />
+      <module name="kapua-account" target="1.8" />
+      <module name="kapua-account-api" target="1.8" />
+      <module name="kapua-account-internal" target="1.8" />
+      <module name="kapua-assembly" target="1.8" />
+      <module name="kapua-assembly-api" target="1.8" />
+      <module name="kapua-assembly-broker" target="1.8" />
+      <module name="kapua-assembly-console" target="1.8" />
+      <module name="kapua-assembly-java-base" target="1.8" />
+      <module name="kapua-assembly-jetty-base" target="1.8" />
+      <module name="kapua-assembly-sql" target="1.8" />
+      <module name="kapua-broker-core" target="1.8" />
+      <module name="kapua-build-tools" target="1.7" />
+      <module name="kapua-commons" target="1.8" />
+      <module name="kapua-console" target="1.6" />
+      <module name="kapua-cucumber-reports" target="1.8" />
+      <module name="kapua-datastore" target="1.8" />
+      <module name="kapua-datastore-api" target="1.8" />
+      <module name="kapua-datastore-client-api" target="1.8" />
+      <module name="kapua-datastore-client-embedded" target="1.8" />
+      <module name="kapua-datastore-client-rest" target="1.8" />
+      <module name="kapua-datastore-client-transport" target="1.8" />
+      <module name="kapua-datastore-internal" target="1.8" />
+      <module name="kapua-dev-tools" target="1.8" />
+      <module name="kapua-device" target="1.8" />
+      <module name="kapua-device-api" target="1.8" />
+      <module name="kapua-device-asset" target="1.8" />
+      <module name="kapua-device-asset-api" target="1.8" />
+      <module name="kapua-device-asset-internal" target="1.8" />
+      <module name="kapua-device-bundle" target="1.8" />
+      <module name="kapua-device-bundle-api" target="1.8" />
+      <module name="kapua-device-bundle-internal" target="1.8" />
+      <module name="kapua-device-call" target="1.8" />
+      <module name="kapua-device-call-api" target="1.8" />
+      <module name="kapua-device-call-kura" target="1.8" />
+      <module name="kapua-device-call-test" target="1.8" />
+      <module name="kapua-device-command" target="1.8" />
+      <module name="kapua-device-command-api" target="1.8" />
+      <module name="kapua-device-command-internal" target="1.8" />
+      <module name="kapua-device-command-test" target="1.8" />
+      <module name="kapua-device-commons" target="1.8" />
+      <module name="kapua-device-configuration" target="1.8" />
+      <module name="kapua-device-configuration-api" target="1.8" />
+      <module name="kapua-device-configuration-internal" target="1.8" />
+      <module name="kapua-device-packages" target="1.8" />
+      <module name="kapua-device-packages-api" target="1.8" />
+      <module name="kapua-device-packages-internal" target="1.8" />
+      <module name="kapua-device-registry" target="1.8" />
+      <module name="kapua-device-registry-api" target="1.8" />
+      <module name="kapua-device-registry-internal" target="1.8" />
+      <module name="kapua-external" target="1.8" />
+      <module name="kapua-guice" target="1.8" />
+      <module name="kapua-idgenerator" target="1.8" />
+      <module name="kapua-idgenerator-api" target="1.8" />
+      <module name="kapua-idgenerator-random-mysql" target="1.8" />
+      <module name="kapua-idgenerator-sequence" target="1.8" />
+      <module name="kapua-liquibase" target="1.8" />
+      <module name="kapua-locator" target="1.8" />
+      <module name="kapua-locator-service" target="1.8" />
+      <module name="kapua-message" target="1.8" />
+      <module name="kapua-message-api" target="1.8" />
+      <module name="kapua-message-internal" target="1.8" />
+      <module name="kapua-qa" target="1.8" />
+      <module name="kapua-qa-openshift" target="1.8" />
+      <module name="kapua-rest-api" target="1.8" />
+      <module name="kapua-security" target="1.8" />
+      <module name="kapua-security-authentication" target="1.8" />
+      <module name="kapua-security-authentication-api" target="1.8" />
+      <module name="kapua-security-authorization" target="1.8" />
+      <module name="kapua-security-authorization-api" target="1.8" />
+      <module name="kapua-security-shiro" target="1.8" />
+      <module name="kapua-service" target="1.8" />
+      <module name="kapua-service-api" target="1.8" />
+      <module name="kapua-simulator-kura" target="1.8" />
+      <module name="kapua-sso" target="1.8" />
+      <module name="kapua-sso-api" target="1.8" />
+      <module name="kapua-sso-jwt" target="1.8" />
+      <module name="kapua-sso-provider" target="1.8" />
+      <module name="kapua-sso-provider-generic" target="1.8" />
+      <module name="kapua-sso-provider-keycloak" target="1.8" />
+      <module name="kapua-test" target="1.8" />
+      <module name="kapua-translator" target="1.8" />
+      <module name="kapua-translator-api" target="1.8" />
+      <module name="kapua-translator-kapua" target="1.8" />
+      <module name="kapua-translator-kapua-kura" target="1.8" />
+      <module name="kapua-translator-kura" target="1.8" />
+      <module name="kapua-translator-kura-jms" target="1.8" />
+      <module name="kapua-translator-kura-mqtt" target="1.8" />
+      <module name="kapua-transport" target="1.8" />
+      <module name="kapua-transport-api" target="1.8" />
+      <module name="kapua-transport-jms" target="1.8" />
+      <module name="kapua-transport-mqtt" target="1.8" />
+      <module name="kapua-transport-test" target="1.8" />
+      <module name="kapua-user" target="1.8" />
+      <module name="kapua-user-api" target="1.8" />
+      <module name="kapua-user-internal" target="1.8" />
+      <module name="l2switch" target="1.5" />
+      <module name="l2switch-artifacts" target="1.5" />
+      <module name="l2switch-parent" target="1.8" />
+      <module name="loopremover-impl" target="1.8" />
+      <module name="loopremover-model" target="1.8" />
+      <module name="loopremover.aggregator" target="1.8" />
+      <module name="main-impl" target="1.8" />
+      <module name="nat-aggregator" target="1.8" />
+      <module name="nat-api" target="1.8" />
+      <module name="nat-impl" target="1.8" />
+      <module name="odl-l2switch-addresstracker" target="1.5" />
+      <module name="odl-l2switch-all" target="1.5" />
+      <module name="odl-l2switch-arphandler" target="1.5" />
+      <module name="odl-l2switch-hosttracker" target="1.5" />
+      <module name="odl-l2switch-loopremover" target="1.5" />
+      <module name="odl-l2switch-packethandler" target="1.5" />
+      <module name="odl-l2switch-switch" target="1.5" />
+      <module name="odl-l2switch-switch-rest" target="1.5" />
+      <module name="odl-l2switch-switch-ui" target="1.5" />
+      <module name="OpenVirteX" target="1.7" />
+      <module name="org.eclipse.kapua.app.api" target="1.8" />
+      <module name="org.eclipse.kapua.app.console" target="1.8" />
+      <module name="org.eclipse.kapua.assembly" target="1.8" />
+      <module name="org.eclipse.kapua.translator.kura.jms" target="1.8" />
+      <module name="org.eclipse.kapua.translator.kura.mqtt" target="1.8" />
+      <module name="packethandler-impl" target="1.8" />
+      <module name="packethandler-model" target="1.8" />
+      <module name="packethandler.aggregator" target="1.8" />
+      <module name="SpringBootAdmin" target="1.8" />
+      <module name="swagger-ui" target="1.8" />
+      <module name="swagger-ui-lib" target="1.8" />
+      <module name="worldma" target="1.8" />
+      <module name="wx_bot" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

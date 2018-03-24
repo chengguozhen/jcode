@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vi: set et smarttab sw=4 tabstop=4: -->
+<!--
+Copyright © 2017 NDSC and others. All rights reserved.
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License v1.0 which accompanies this distribution,
+and is available at http://www.eclipse.org/legal/epl-v10.html
+-->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:odl="http://opendaylight.org/xmlns/blueprint/v1.0.0"
+  odl:use-default-for-reference-types="true">
+
+  <reference id="dataBroker"
+             interface="org.opendaylight.controller.md.sal.binding.api.DataBroker"
+    odl:type="default" />
+
+  <reference id="notificationPublishService"
+             interface="org.opendaylight.controller.md.sal.binding.api.NotificationPublishService" />
+
+  <reference id="notificationService"
+             interface="org.opendaylight.controller.md.sal.binding.api.NotificationService" />
+
+  <odl:clustered-app-config id="DnsConfig"
+                            binding-class="org.opendaylight.yang.gen.v1.urn.opendaylight.dns.yang.dns.config.rev171124.DnsConfig">
+  </odl:clustered-app-config>
+
+  <odl:rpc-service id="salFlowService"
+                   interface="org.opendaylight.yang.gen.v1.urn.opendaylight.flow.service.rev130819.SalFlowService" />
+  <odl:rpc-service id="packetHandlerService"
+                   interface="org.opendaylight.yang.gen.v1.urn.opendaylight.packet.service.rev130709.PacketProcessingService" />
+
+  <bean id="UdpPacketDecoder" class="org.opendaylight.dip.dns.decoder.UdpPacketDecoder" >
+      <argument ref="notificationPublishService" />
+  </bean>
+  <bean id="DnsPacketDecoder" class="org.opendaylight.dip.dns.decoder.DnsPacketDecoder" >
+      <argument ref="notificationPublishService" />
+  </bean>
+
+  <odl:notification-listener ref="UdpPacketDecoder"/>
+  <odl:notification-listener ref="DnsPacketDecoder"/>
+
+  <bean id="provider"
+        class="org.opendaylight.dip.dns.core.DnsProvider"
+        init-method="init" destroy-method="close">
+    <argument ref="DnsConfig" />
+    <argument ref="dataBroker" />
+    <argument ref="notificationService"/>
+    <argument ref="salFlowService" />
+    <argument ref="packetHandlerService" />
+  </bean>
+
+</blueprint>

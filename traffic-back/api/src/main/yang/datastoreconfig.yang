@@ -1,0 +1,52 @@
+module datastoreconfig {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:datastoreconfig";
+    prefix "dbcfg";
+
+    revision "2015-01-05" {
+        description "Initial revision of datastoreconfig model";
+    }
+
+    grouping dbconfig {
+        leaf shard-name {
+            type string;
+        }
+        leaf db-type {
+            type enumeration {
+                enum "CONFIGRATION" {
+                    value 0;
+                    description "config datastore";
+                }
+                enum "OPERATINAL" {
+                    value 2;
+                    description "oper datastore";
+                }
+            }
+        }
+        leaf persistent {
+            type boolean;
+        }
+        leaf transaction-commit-queue-capacity {
+            type int32;
+        }
+        leaf custom-raft-policy-implementation {
+            type string;
+        }
+    }
+    rpc db-setting {
+        input {
+            uses dbconfig;
+        }
+        output {
+            leaf result {
+                type boolean;
+            }
+        }
+    }
+    container datastore-config {
+        list datastore-shard {
+            key shard-name;
+            uses dbconfig;
+        }
+    }
+}

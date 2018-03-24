@@ -1,0 +1,47 @@
+module virtual-ip-config {
+
+    yang-version 1;
+    namespace "urn:opendaylight:packet:virtual-ip-config";
+    prefix "virtual-ip-config";
+
+
+    description
+        "This module contains the base configuration for virtual ip pool implementation.";
+
+    revision 2017-05-28 {
+        description "Initial revision.";
+    }
+
+    container virtual-ip-config {
+
+        leaf virtual-upper-ip {
+            type string;
+            default 192.168.32.253;
+        }
+        leaf virtual-lower-ip {
+            type string;
+            default 192.168.32.150;
+        }
+
+        leaf virtual-broadcast-address {
+            type string;
+            default 192.168.32.255;
+        }
+        leaf virtual-domain-name {
+            type string;
+            default RandomVirtualDomain;
+        }
+        leaf virtual-lease-time {
+            type uint32;
+            default 3600;
+        }
+        leaf virtual-hold-lease-time {
+            type uint32;
+            default 3600;
+        }
+        leaf store-path {
+            type string;
+        }
+    }
+}
+

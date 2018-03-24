@@ -1,0 +1,30 @@
+module ip-bindling-broadcast {
+
+    yang-version 1;
+    namespace "urn:opendaylight:broadcast:ip-bindling-broadcast";
+    prefix "ip-bindling-broadcast";
+
+
+    description
+        "This module broadcasts ip-mac binding implementation.";
+
+    revision 2017-05-28 {
+        description "broadcast revision.";
+    }
+
+    notification mac-ip-bindling-broadcast {
+        leaf mac {
+            type string;
+        }
+        leaf real-ip {
+            type string;
+        }
+        leaf virtual-ip {
+            type string;
+        }
+        leaf hold-time{
+        type uint16;
+        }
+    }
+}
+

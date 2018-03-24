@@ -1,0 +1,264 @@
+module dns-packet {
+    yang-version 1.1;
+    namespace "urn:opendaylight:dns:yang:dns-packet";
+    prefix dnspacket;
+
+    import ietf-inet-types {
+        prefix inet;
+        revision-date 2013-07-15;
+    }
+    import base-packet {
+        prefix bpacket;
+        revision-date 2014-05-28;
+    }
+    revision 2017-11-24 {
+        description "DNS packet module draft";
+     }
+
+    typedef DNS-TYPE {
+        type enumeration{
+            enum "A"{
+                value 1;
+                description "a host address";
+                }
+            enum "NS"{
+                value 2;
+                description "an authoritative name server";
+                }
+            enum "MD"{
+                value 3;
+                description "a mail destination (Obsolete - use MX)";
+                }
+            enum "MF"{
+                value 4;
+                description "a mail forwarder (Obsolete - use MX)";
+                }
+            enum "CNAME"{
+                value 5;
+                description "the canonical name for an alias";
+                }
+            enum "SOA"{
+                value 6;
+                description "marks the start of a zone of authority";
+                }
+            enum "NB"{
+                value 7;
+                description "a mailbox domain name";
+                }
+            enum "MG"{
+                value 8;
+                description "a mail group member";
+                }
+            enum "MR"{
+                value 9;
+                description "a mail rename domain name";
+            }
+            enum "NULL"{
+                value 10;
+                description "a null RR";
+            }
+            enum "WKS"{
+                value 11;
+                description "a well known service description";
+            }
+            enum "PTR"{
+                value 12;
+                description "a domain name pointer";
+            }
+            enum "HINFO"{
+                value 13;
+                description "host information";
+            }
+            enum "MINFO"{
+                value 14;
+                description "mailbox or mail list information";
+            }
+            enum "MX"{
+                value 15;
+                description "mail exchange";
+            }
+            enum "TXT"{
+                value 16;
+                description "text strings";
+            }
+            enum "MXFR"{
+                value 252;
+                description "A request for a transfer of an entire zone";
+            }
+            enum "MAILB"{
+                value 253;
+                description "A request for mailbox-related records (MB, MG or MR)";
+            }
+            enum "MAILA"{
+                value 254;
+                description "A request for mail agent RRs (Obsolete - see MX)";
+            }
+            enum "ALL"{
+                value 255;
+                description "A request for all records";
+            }
+        }
+        description "TYPE fields are used in resource records";
+    }
+
+    typedef DNS-CLASS {
+        type enumeration{
+            enum "IN"{
+                value 1;
+                description "the Internet";
+                }
+            enum "CS"{
+                value 2;
+                description "the CSNET class (Obsolete - used only for examples in some obsolete RFCs)";
+            }
+            enum "CH"{
+                value 3;
+                description "the CHAOS class";
+            }
+            enum "HS"{
+                value 4;
+                description "Hesiod [Dyer 87]";
+            }
+        }
+    }
+
+    grouping dns-packet-record {
+        list dns-record {
+            key RDATA;
+            leaf NAME {
+                type string;
+                description "a domain name to which this resource record pertains";
+            }
+            leaf rTYPE {
+                type DNS-TYPE;
+                description "the meaning of the data in the RDATA field";
+            }
+            leaf rCLASS {
+                type DNS-CLASS;
+                description "the class of the data in the RDATA field";
+                }
+            leaf TTL {
+                type uint32;
+                description "the time interval (in seconds) that the resource record may be cached before it should be discarded";
+            }
+            leaf RDLENGTH {
+                type uint16;
+                description "the length in octets of the RDATA field.";
+            }
+            leaf RDATA {
+                type binary;
+                description "a domain name to which this resource record pertains";
+            }
+        }
+
+    }
+
+    grouping dns-packet-header {
+        leaf ID {
+            type uint16;
+            description "identifier";
+        }
+        leaf QR {
+            type boolean;
+            description "whether this message is a query (0), or a response (1)";
+        }
+        leaf OPCODE {
+            type enumeration{
+                enum "QUERY"{
+                    value 0;
+                    description "a standard query";
+                }
+                enum "IQUERY"{
+                    value 1;
+                    description "an inverse query";
+                }
+                enum "STATUS"{
+                    value 2;
+                    description "a server status request";
+                }
+            }
+        }
+        leaf AA {
+            type boolean;
+            description "Authoritative Answer";
+        }
+        leaf TC {
+            type boolean;
+            description "TrunCation";
+        }
+        leaf RD {
+            type boolean;
+            description " Recursion Desired";
+        }
+        leaf RA {
+            type boolean;
+            description "Recursion Available";
+        }
+        leaf Z {
+            type uint8;
+            default 0;
+            description "Reserved for future use";
+        }
+        leaf RCODE {
+            type enumeration{
+                enum "NoE"{
+                    value 0;
+                    description "No error condition";
+                }
+                enum "FE"{
+                    value 1;
+                    description "Format error";
+                }
+                enum "SE"{
+                    value 2;
+                    description "Server failure";
+                }
+                enum "NE"{
+                    value 3;
+                    description "Name Error";
+                }
+                enum "NI"{
+                    value 4;
+                    description "Not Implemented";
+                }
+                enum "R"{
+                    value 5;
+                    description "Refused";
+                }
+            }
+        }
+        leaf QDCOUNT {
+            type uint16;
+            description "the number of entries in the question section";
+        }
+        leaf ANCOUNT {
+            type uint16;
+            description "the number of resource records in the answer section";
+        }
+        leaf NSCOUNT {
+            type uint16;
+            description "the number of name server resource records in the authority records section";
+        }
+        leaf ARCOUNT {
+            type uint16;
+            description "the number of resource records in the additional records section";
+        }
+    }
+
+    container dns-message{
+        uses dns-packet-record;
+    }
+
+    notification dns-packet-received {
+        uses bpacket:packet-chain-grp {
+            augment "packet-chain/packet" {
+                case dns-packet {
+                    uses dns-packet-header;
+                    uses bpacket:packet-fields;
+                }
+            }
+        }
+        uses bpacket:packet-payload;
+    }
+
+}

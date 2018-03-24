@@ -1,0 +1,78 @@
+module v-address-up-config {
+
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:dipapp:v-address-up-config";
+    prefix "v-address-up-config";
+
+    contact "guozhencheng@hotmail.com";
+    
+    organization "www.ndsc.org";
+    
+    description
+        "This module contains the base configuration for address-tracker.";
+
+    revision "2015-01-05" {
+        description "Initial module draft.";
+    }
+    typedef mtd_model{
+        type enumeration{
+            enum "src"{
+                value 1;
+            }
+            enum "src-dst"{
+                value 2;
+            }
+            enum "dst"{
+                value 3;
+            }
+            enum "none"{
+                value 0;
+            }
+        }
+        default "src";
+        description "Open ip mtd function,there are four model: src,src-dst,dst and none.";
+    }
+
+    grouping dip-config{
+        leaf mutation_period {
+            type uint32;
+            description "period to mutation.";
+        }
+        leaf mutation_model {
+            type mtd_model;
+        }
+    }
+
+    container v-address-up-config {
+        uses dip-config;
+    }
+
+    rpc select-model {
+
+    	input {
+    		uses dip-config;
+    	}
+
+    	output {
+    		leaf success {
+    			type boolean;
+                description "true: success; false: failed.";
+    		}
+
+    		leaf message {
+    			type string;
+                description "details information for the result to involve the rpc.";
+    		}
+    	}
+    }
+
+
+    rpc get-model {
+
+    	output {
+    		leaf mutation_model {
+    			type mtd_model;
+    		}
+    	}
+    }
+}

@@ -1,0 +1,50 @@
+module udp-packet {
+  yang-version 1;
+  namespace "urn:opendaylight:dns:yang:dns:udp-packet";
+  prefix udp;
+
+  import ietf-inet-types {
+    prefix inet;
+    revision-date 2013-07-15;
+  }
+  import base-packet {
+    prefix bpacket;
+    revision-date 2014-05-28;
+  }
+  revision 2017-11-24 {
+    description
+      "UDP packet module draft.";
+  }
+
+  grouping udp-packet-fields {
+    leaf source-port {
+      type uint16;
+      description "Source Port";
+    }
+    leaf destination-port {
+      type uint16;
+      description "Destination Port";
+    }
+    leaf data-length {
+      type uint16;
+      description "Length of data";
+    }
+    leaf check-sum {
+      type uint16;
+      description "Check-sum";
+    }
+
+    uses bpacket:packet-fields;
+  }
+
+  notification udp-packet-received {
+    uses bpacket:packet-chain-grp {
+      augment "packet-chain/packet" {
+        case udp-packet {
+          uses udp-packet-fields;
+        }
+      }
+    }
+    uses bpacket:packet-payload;
+  }
+}

@@ -1,0 +1,58 @@
+module get-change-ip {
+
+    yang-version 1;
+    namespace "urn:opendaylight:rpc:get-change-ip";
+    prefix "get-change-ip";
+
+    import ietf-inet-types {
+        prefix inet;
+        revision-date 2013-07-15;
+    }
+    import ietf-yang-types {
+        prefix yang;
+        revision-date 2013-07-15;
+    }
+
+    description
+        "get the changed ip.";
+
+    revision 2017-05-28 {
+        description "Initial revision.";
+    }
+    rpc change-ip {
+        description "get-change-ip";
+
+        input {
+            leaf mac {
+                type string;
+                description "MAC address";
+            }
+        }
+
+        output {
+            leaf vip{
+               type string;
+               description "virtual IPv4 or IPv6 address";
+            }
+            leaf vdomain {
+               type string;
+               description "Virtual domain and it's can be empty.";
+            }
+            leaf vip-last-mutation {
+               type int32;
+               description "The most recent update time the vip is set";
+            }
+            leaf vdomain-last-mutation {
+               type int32;
+               description "The most recent update time the vip is set";
+            }
+            leaf store-path {
+               type inet:uri;
+            }
+            leaf success {
+               description "true: success; false: failed.";
+               type boolean;
+            }
+        }
+    }
+}

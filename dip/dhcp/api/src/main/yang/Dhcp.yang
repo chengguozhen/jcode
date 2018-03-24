@@ -1,0 +1,9 @@
+module Dhcp {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:Dhcp";
+    prefix "Dhcp";
+
+    revision "2015-01-05" {
+        description "Initial revision of Dhcp model";
+    }
+}

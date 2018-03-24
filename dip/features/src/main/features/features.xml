@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vi: set et smarttab sw=4 tabstop=4: -->
+<!--
+Copyright © 2017 NDSC and others. All rights reserved.
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License v1.0 which accompanies this distribution,
+and is available at http://www.eclipse.org/legal/epl-v10.html
+-->
+<features name="odl-dip-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/{{VERSION}}/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/{{VERSION}}/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/{{VERSION}}/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/{{VERSION}}/xml/features</repository>
+  <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/{{VERSION}}/xml/features</repository>
+  <repository>mvn:org.opendaylight.l2switch/features-l2switch/{{VERSION}}/xml/features</repository>
+  <feature name='odl-dip-api' version='${project.version}' description='OpenDaylight :: dip :: api'>
+    <feature version='${mdsal.model.version}'>odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.dipproject.config/config-api/{{VERSION}}</bundle>
+    <bundle>mvn:org.opendaylight.dipproject.dhcp/dhcp-api/{{VERSION}}</bundle>
+    <bundle>mvn:org.opendaylight.dipproject.dns/dns-api/{{VERSION}}</bundle>
+  </feature>
+  <feature name='odl-dip' version='${project.version}' description='OpenDaylight :: dip'>
+    <feature version='${mdsal.version}'>odl-mdsal-broker</feature>
+    <feature version='${l2switch.version}'>odl-l2switch-packethandler</feature>
+    <feature version='${openflowplugin.version}'>odl-openflowplugin-app-topology</feature>
+    <feature version='${project.version}'>odl-dip-api</feature>
+    <bundle>mvn:org.opendaylight.dipproject.config/config-impl/{{VERSION}}</bundle>
+    <bundle>mvn:org.opendaylight.dipproject.dhcp/dhcp-impl/{{VERSION}}</bundle>
+    <bundle>mvn:org.opendaylight.dipproject.dns/dns-impl/{{VERSION}}</bundle>
+    <bundle>mvn:org.opendaylight.dipproject.main/main-impl/{{VERSION}}</bundle>
+    <bundle>mvn:org.opendaylight.controller.thirdparty/net.sf.jung2/2.0.1</bundle>
+  </feature>
+  <feature name='odl-dip-rest' version='${project.version}' description='OpenDaylight :: dip :: REST'>
+    <feature version="${project.version}">odl-dip</feature>
+    <feature version="${restconf.version}">odl-restconf</feature>
+  </feature>
+  <feature name='odl-dip-ui' version='${project.version}' description='OpenDaylight :: dip :: UI'>
+    <feature version="${project.version}">odl-dip-rest</feature>
+    <feature version="${restconf.version}">odl-mdsal-apidocs</feature>
+    <feature version="${dluxapps.version}">odl-dluxapps-yangman</feature>
+  </feature>
+
+</features>

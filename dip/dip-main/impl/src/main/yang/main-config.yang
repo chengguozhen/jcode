@@ -1,0 +1,56 @@
+module main-config {
+
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:dipapp:main-config";
+    prefix "main-config";
+
+    description
+        "This module contains the base configuration for main implementation.";
+
+    revision 2014-05-28 {
+        description "Initial module draft.";
+    }
+
+    container dip-main-config {
+        leaf is-dip-change-mode {
+            type boolean;
+            default true;
+        }
+        leaf is-install-dropall-flow {
+            type boolean;
+            default true;
+        }
+        leaf dropall-flow-table-id {
+            type uint8;
+            default 0;
+        }
+        leaf dropall-flow-priority {
+            type uint16;
+            default 0;
+        }
+        leaf dropall-flow-hard-timeout {
+            type uint16;
+            default 0;
+        }
+        leaf dropall-flow-idle-timeout {
+            type uint16;
+            default 0;
+        }
+        leaf reactive-flow-table-id {
+            type uint8;
+            default 0;
+        }
+        leaf reactive-flow-priority {
+            type uint16;
+            default 30;
+        }
+        leaf reactive-flow-hard-timeout {
+            type uint16;
+            default 300;
+        }
+        leaf reactive-flow-idle-timeout {
+            type uint16;
+            default 600;
+        }
+    }
+}
